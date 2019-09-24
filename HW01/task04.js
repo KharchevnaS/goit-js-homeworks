@@ -5,7 +5,7 @@ const pricePerDroid = 3000;
 let message;
 let input = prompt("введите необходимое количество дроидов");
 let totalPrice;
-let creditsBalance = Number(credits - input * pricePerDroid);
+let creditsBalance = credits - input * pricePerDroid;
 
 if (input === null) {
     message = 'Отменено пользователем!';
