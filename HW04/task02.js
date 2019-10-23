@@ -15,11 +15,11 @@ const inventory = {
 
 const invokeInventoryAction = function (itemName, action) {
   console.log(`Invoking action on ${itemName}`);
-  action.bind(itemName);
+  action(itemName);
 };
 
-invokeInventoryAction('Аптечка', inventory.add);
+invokeInventoryAction('Аптечка', inventory.add.bind(inventory));
 console.log(inventory.items);
-invokeInventoryAction('Фильтр', inventory.remove);
+invokeInventoryAction('Фильтр', inventory.remove.bind(inventory));
 
 console.log(inventory.items);
