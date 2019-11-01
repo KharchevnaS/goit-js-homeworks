@@ -1,7 +1,7 @@
 "use strict";
 
 class StringBuilder {
-    constructor([...str]) {
+    constructor(str) {
         this._value = str;
     };
 
@@ -9,15 +9,14 @@ class StringBuilder {
         return this._value;
     };
     append(str) {
-        this._value.push(str);
-        return this.string;
+        this._value = `${this._value}${str}`
     };
     prepend(str) {
-        this._value.unshift(str);
+        this._value = `${str}${this._value}`;
     };
     pad(str) {
-        this._value.splice(0, 0, ...str);
-        this._value.push(str);
+        this._value = `${str}${this._value}${str}`;
+
     };
 };
 

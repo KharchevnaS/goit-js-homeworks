@@ -1,6 +1,6 @@
 'use strict';
 class Storage {
-  constructor([...items]) {
+  constructor(items = []) {
     this.items = items;
   }
 
@@ -14,14 +14,12 @@ class Storage {
 
   removeItem(item) {
     for (let i = 0; i < items.length; i += 1) {
-      if (items[i] !== item) {
-
-        items.push(item);
-        break;
+      if (items[i] === item) {
+        return this.items.splice(i, 1);
       };
     };
   };
-}
+};
 
 const storage = new Storage([
   'Нанитоиды',

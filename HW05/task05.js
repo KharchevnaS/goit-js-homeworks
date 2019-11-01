@@ -1,52 +1,41 @@
 'use strict';
 
 class Car {
-  static getSpecs(car) {
-    console.log(Object.values(Car));
-  };
+  static getSpecs(Car) {
+    console.log(Object.entries(Car));
+  }
 
-  constructor({
-    speed = 0,
-    price,
-    maxSpeed,
-    isOn = false,
-    distance = 0
-  }) {
-    this.speed = speed
-    this._price = price
-    this.maxSpeed = maxSpeed
+  constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
+    this.speed = speed;
+    this._price = price;
+    this.maxSpeed = maxSpeed;
     this.distance = distance;
-  };
+  }
 
   get price() {
     return this._price;
-  };
+  }
 
   set price(price) {
-    this._price = price
-  };
+    this._price = price;
+  }
 
-  turnOn(isOn) {
+  turnOn() {
     this.isOn = true;
-  };
+  }
 
   turnOff() {
     this.isOn = false;
     this.speed = 0;
-  };
+  }
 
   accelerate(value) {
-    if (this.maxSpeed < this.speed) {
-      this.speed += value;
-    };
-    return this.speed
-  };
+    if (this.maxSpeed < this.speed + value);
+  }
 
   decelerate(value) {
-    if (this.speed > 0) {
-      this.speed -= value;
-    }
-  };
+    if (this.speed > 0 - value);
+  }
 
   drive(hours) {
     if (this.isOn === true) {
@@ -54,11 +43,11 @@ class Car {
     }
     return this.distance;
   }
-};
+}
 
 const mustang = new Car({
   maxSpeed: 200,
-  price: 2000
+  price: 2000,
 });
 
 mustang.turnOn();
