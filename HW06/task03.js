@@ -84,11 +84,11 @@ const users = [{
     age: 39,
   },
 ];
-// Получить массив имен пользователей по полу (поле gender).
 
-const getUsersWithGender = (users, gender) => {
-  const filtered = users.filter(user => user.gender === gender);
-  return filtered;
+
+const getUsersNameByGender = (users, gender) => {
+  return users.filter(user => user.gender === gender).map(user => user.name)
+
 };
 
-console.log(getUsersWithGender(users, 'male'));
+console.log(getUsersNameByGender(users, 'male'));

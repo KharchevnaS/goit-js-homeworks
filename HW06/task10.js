@@ -1,5 +1,6 @@
 'use strict';
-const users = [{
+const users = [
+  {
     id: '701b29c3-b35d-4cf1-a5f6-8b12b29a5081',
     name: 'Moore Hensley',
     email: 'moorehensley@indexia.com',
@@ -85,26 +86,16 @@ const users = [{
   },
 ];
 
-// Получить массив всех умений всех пользователей (поле skills),
-//  при этом не должно быть повторяющихся
-//  умений и они должны быть отсортированы в алфавитном порядке.
+const getAllScillsOfUsers = users => {
+  return users
+    .reduce((allSkills, user) => [...allSkills, ...user.skills], [])
+    .reduce((uniqueSkills, skill) => {
+      if (uniqueSkills.includes(skill)) return uniqueSkills;
+      return [...uniqueSkills, skill];
+    });
+};
 
-const getAllSkills = users =>
-  users.reduce((allSkills, user) => {
-    allSkills.push(...user.skills);
-    return allSkills;
-  }, []);
-console.log(getAllSkills(users));
+console.log(getAllScillsOfUsers(users));
 
-const getSortedUniqueSkills =
-  getAllSkills
-  .sort()
-  .reduce((accumulator, someSkill) => {
-    const length = accumulator.length
-    if (someSkill !== user.skills) {
-      accumulator.push(someSkill);
-    }
-    return accumulator;
-  }, []);
-
-console.log(getSortedUniqueSkills(users));
+const sorted = getAllScillsOfUsers(users).sort((a, b) => a > b);
+console.log(sorted);

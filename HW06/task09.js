@@ -85,15 +85,10 @@ const users = [{
   },
 ];
 
-// Массив имен (поле name) людей, 
-// тсортированных в зависимости от количества их друзей (поле friends)
+
 
 const getNamesSortedByFriendsCount = users => {
-  const friendsCount = (a, b) =>
-    a.friends.length - b.friends.length;
-  return users.sort(friendsCount);
+  const friendsCount = (a, b) => a.friends.length - b.friends.length;
+  return users.sort(friendsCount).map(user => user.name);
 };
 console.log(getNamesSortedByFriendsCount(users));
-
-// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 
-// 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
