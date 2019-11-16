@@ -1,0 +1,24 @@
+ .flex-container {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     list-style-type: none;
+ }
+
+ .flex-item {
+     display: flex;
+     align-items: center;
+     width: 400px;
+     height: 400px;
+     margin: 0 auto;
+     padding: 5px;
+
+ }
+
+ .valid {
+     border-color: #4caf50;
+ }
+
+ .invalid {
+     border: 3px solid red;
+ }
