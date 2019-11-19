@@ -13,8 +13,7 @@ const images = [{
   },
 ];
 
-let imgUrl = images.map(a => a.url);
-let imgAlt = images.map(a => a.alt);
+
 let ul = document.querySelector('#gallery');
 
 console.log(ul);
