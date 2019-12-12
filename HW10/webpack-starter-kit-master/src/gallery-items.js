@@ -7,18 +7,25 @@ const menuList = menuGalleryList.reduce(
 const menuGallery = document.querySelector('.js-menu');
 menuGallery.innerHTML = menuList;
 console.log(menuGallery);
-const Theme = {
-  LIGHT: 'light-theme',
-  DARK: 'dark-theme',
+const refs = {
+  body: document.body,
+  inputSwitch: document.querySelector('.js-switch-input'),
 };
 
-const body = document.body;
-const inputSwitch = document.querySelector('.js-switch-input');
-document.getElementById('theme-switch-control').checked = true;
-inputSwitch.addEventListener('change', handleChangeTheme);
+const currentTheme = localStorage.getItem('theme');
+refs.body.classList.add(currentTheme || 'light-theme');
 
-function handleChangeTheme(e) {
-  body.classList.add('dark-theme');
+function setBackgroundColor(e) {
+  e.preventDefault();
+  let current = '';
+  if (refs.body.classList.contains('light-theme')) {
+    refs.body.classList.replace('light-theme', 'dark-theme');
+    current = 'dark-theme';
+  } else {
+    refs.body.classList.replace('dark-theme', 'light-theme');
+    current = 'light-theme';
+  }
+  localStorage.setItem('theme', current);
 }
 
-localStorage.setItem('Theme', JSON.stringify(Theme));
+refs.inputSwitch.addEventListener('change', setBackgroundColor);
