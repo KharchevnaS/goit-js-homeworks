@@ -16,12 +16,19 @@ const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-function toChangeColor() {
+function changeColor() {
   const someColor = colors[randomIntegerFromInterval(colors.length, 0)];
   console.log(someColor);
   document.body.style.backgroundColor = someColor;
-};
+}
 let interval = undefined;
-btnStart.addEventListener('click', event => interval = interval ? interval : setInterval(() => toChangeColor(), 1000));
+btnStart.addEventListener(
+  'click',
+  e =>
+    (interval = interval ? interval : setInterval(() => changeColor(), 1000)),
+);
 
-btnStop.addEventListener('click', event => clearInterval(interval));
+btnStop.addEventListener('click', e => {
+  clearInterval(interval);
+  interval = 0;
+});
